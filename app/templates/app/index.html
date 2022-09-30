@@ -1,22 +1,45 @@
 {% extends "base.html" %}
+
 {% block content %}
-<a class="btn btn-primary" href="{% url 'app:new' %}" role="button">리뷰 작성</a>
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">리뷰 번호</th>
-      <th scope="col">리뷰 제목</th>
-      <th scope="col">작성 시간</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
-  </tbody>
-</table>
-
-
+<main class="container my-5">
+  <a class="btn btn-primary w-100" href="{% url 'app:new' %}" role="button">리뷰 작성</a>
+  <section class="my-5">
+    <table class="table text-center">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">리뷰 번호</th>
+          <th scope="col">리뷰 제목</th>
+          <th scope="col">작성 시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr>
+          <th scope="row">{{ review.pk }}</th>
+          <td><a href="{% url 'app:detail' review.pk %}">{{ review.title }}</a></td>
+          <td>{{ review.created_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  <section>
+    {% for review in reviews %}
+    <a href="{% url 'app:detail' review.pk %}" class="text-decoration-none text-dark">
+      <article class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card-body">
+          <div class="d-flex align-items-baseline justify-content-between">
+            <p class="fs-1 fw-bolder">{{ review.pk }}</p>
+            <h5 class="card-title">{{ review.title }}</h5>
+            <p class="text-muted created_time">작성일: {{ review.created_at }}</p>
+          </div>
+          <div class="card_content">
+            {{ review.content }}
+          </div>
+        </div>
+      </article>
+    </a>
+    {% endfor %}
+  </section>
+</main>
 {% endblock %}

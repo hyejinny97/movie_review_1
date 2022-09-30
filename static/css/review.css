@@ -1,0 +1,10 @@
+/* index.html */
+.created_time {
+  font-size: 0.7rem;
+}
+.card_content {
+  height: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

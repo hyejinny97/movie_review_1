@@ -1,26 +1,18 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-<form>
+{% block content %}
+<form action="{% url 'app:create' %}">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">제목</label>
-    <input
-      type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
+    <label for="title" class="form-label">제목</label>
+    <input type="text" class="form-control" id="title" name="title" required maxlength="80" />
   </div>
   <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-    <textarea
-      class="form-control"
-      id="exampleFormControlTextarea1"
-      rows="1"
-    ></textarea>
+    <label for="content" class="form-label">내용</label>
+    <textarea class="form-control" id="content" rows="5" name="content"></textarea>
   </div>
   <div class="d-grid gap-2">
     <button class="btn btn-primary" type="submit">리뷰 쓰기</button>
   </div>
 </form>
-
+<a class="btn btn-secondary" href="{% url 'app:index' %}" role="button">홈으로</a>
 {% endblock %}

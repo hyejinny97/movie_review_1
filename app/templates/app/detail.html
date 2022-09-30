@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>제목: {{ review.title }}</h2>
+<p>작성일: {{ review.created_at }}</p>
+<p>마지막 수정일: {{ review.updated_at }}</p>
+<p>{{ review.content }}</p>
+
+<a class="btn btn-success" href="{% url 'app:edit' review.pk %}" role="button">수정</a>
+<a class="btn btn-danger" href="{% url 'app:delete' review.pk %}" role="button">삭제</a>
+
+<a class="btn btn-secondary" href="{% url 'app:index' %}" role="button">홈으로</a>
+{% endblock %}
