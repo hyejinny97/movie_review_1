@@ -1,13 +1,32 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<main class="container my-5">
+  <div class="card shadow p-3 mb-5 bg-body rounded">
+    <div class="card-body">
+      <h2 class="text-center">제목: {{ review.title }}</h2>
+      <hr />
 
-{% block content %}
-<h2>제목: {{ review.title }}</h2>
-<p>작성일: {{ review.created_at }}</p>
-<p>마지막 수정일: {{ review.updated_at }}</p>
-<p>{{ review.content }}</p>
-
-<a class="btn btn-success" href="{% url 'app:edit' review.pk %}" role="button">수정</a>
-<a class="btn btn-danger" href="{% url 'app:delete' review.pk %}" role="button">삭제</a>
-
-<a class="btn btn-secondary" href="{% url 'app:index' %}" role="button">홈으로</a>
+      <p style="min-height: 600px">{{ review.content }}</p>
+      <div class="d-flex text-muted justify-content-between">
+        <div class="align-self-end">
+          <a
+            class="btn btn-success"
+            href="{% url 'app:edit' review.pk %}"
+            role="button"
+            >수정</a
+          >
+          <a
+            class="btn btn-danger"
+            href="{% url 'app:delete' review.pk %}"
+            role="button"
+            >삭제</a
+          >
+        </div>
+        <div class="align-self-end">
+          <p>작성일: {{ review.created_at }}</p>
+          <p class="m-0">마지막 수정일: {{ review.updated_at }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 {% endblock %}

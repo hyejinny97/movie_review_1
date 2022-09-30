@@ -1,18 +1,40 @@
-{% extends "base.html" %}
-
-{% block content %}
-<form action="{% url 'app:create' %}">
-  <div class="mb-3">
-    <label for="title" class="form-label">제목</label>
-    <input type="text" class="form-control" id="title" name="title" required maxlength="80" />
-  </div>
-  <div class="mb-3">
-    <label for="content" class="form-label">내용</label>
-    <textarea class="form-control" id="content" rows="5" name="content"></textarea>
-  </div>
-  <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="submit">리뷰 쓰기</button>
-  </div>
-</form>
-<a class="btn btn-secondary" href="{% url 'app:index' %}" role="button">홈으로</a>
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <form action="{% url 'app:create' %}">
+    {% comment %}
+    <div class="input-group my-3">
+      <label class="input-group-text" for="inputGroupSelect01">영화 선택</label>
+      <select class="form-select" id="inputGroupSelect01">
+        <option selected>리뷰 할 영화 선택 해주세요.</option>
+        <option value="1">Catch Me If You Can</option>
+        <option value="2">공조2: 인터내셔날</option>
+        <option value="3">정직한 후보2</option>
+      </select>
+    </div>
+    {% endcomment %}
+    <div class="mb-3">
+      <label for="title" class="form-label mt-3">제목</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+        maxlength="80"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">내용</label>
+      <textarea
+        class="form-control"
+        id="content"
+        rows="5"
+        name="content"
+      ></textarea>
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit">리뷰 쓰기</button>
+    </div>
+  </form>
+</div>
 {% endblock %}

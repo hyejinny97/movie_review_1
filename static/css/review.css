@@ -8,3 +8,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.main-container {
+  max-width: 1000px;
+}
+
+.detail_content {
+  min-height: 600px;
+  color: red;
+}
