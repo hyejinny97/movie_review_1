@@ -12,25 +12,21 @@
       </select>
     </div>
     {% endcomment %}
+    <fieldset class="mb-3 start-field">
+      <span class="text-bold">별점을 선택해주세요</span>
+      <input type="radio" name="reviewStar" value="5" id="rate1"><label for="rate1">★</label>
+      <input type="radio" name="reviewStar" value="4" id="rate2"><label for="rate2">★</label>
+      <input type="radio" name="reviewStar" value="3" id="rate3"><label for="rate3">★</label>
+      <input type="radio" name="reviewStar" value="2" id="rate4"><label for="rate4">★</label>
+      <input type="radio" name="reviewStar" value="1" id="rate5"><label for="rate5">★</label>
+    </fieldset>
     <div class="mb-3">
       <label for="title" class="form-label mt-3">제목</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        name="title"
-        required
-        maxlength="80"
-      />
+      <input type="text" class="form-control" id="title" name="title" required maxlength="80" />
     </div>
     <div class="mb-3">
       <label for="content" class="form-label">내용</label>
-      <textarea
-        class="form-control"
-        id="content"
-        rows="5"
-        name="content"
-      ></textarea>
+      <textarea class="form-control" id="content" rows="5" name="content"></textarea>
     </div>
     <div class="d-grid gap-2">
       <button class="btn btn-primary" type="submit">리뷰 쓰기</button>

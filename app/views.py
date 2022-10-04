@@ -1,11 +1,13 @@
+from atexit import register
 from django.shortcuts import render, redirect
+
+from pjt_movie.settings import BASE_DIR
 from .models import Review
 from random import choice
 
-
 # 루트페이지
 def index(request):
-    reviews = Review.objects.all()
+    reviews = Review.objects.all().order_by('-updated_at')
     movie_images = ['https://upload.wikimedia.org/wikipedia/ko/2/23/%EC%BA%90%EC%B9%98_%EB%AF%B8_%EC%9D%B4%ED%94%84_%EC%9C%A0_%EC%BA%94_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg','https://t1.daumcdn.net/movie/36f22dea0e0a9e0e626c549ce689558160c46ed4','https://t1.daumcdn.net/movie/ec835362c051a621cda0411af5a61a20464a161b']
     images=[]
     for i in range(len(reviews)):
@@ -31,8 +33,9 @@ def new(request):
 def create(request):
     title = request.GET.get('title')
     content = request.GET.get('content')
+    star_point = request.GET.get('reviewStar')
 
-    review = Review(title=title, content=content)
+    review = Review(title=title, content=content, star_point=star_point)
     review.save()
 
     return redirect('app:detail', review.pk)
@@ -67,10 +70,12 @@ def edit(request, review_pk):
 def update(request, review_pk):
     title = request.GET.get('title')
     content = request.GET.get('content')
+    star_point = request.GET.get('reviewStar')
 
     review = Review.objects.get(pk=review_pk)
     review.title = title
     review.content = content
+    review.star_point = star_point
     review.save()
 
     return redirect('app:detail', review.pk)

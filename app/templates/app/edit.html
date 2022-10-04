@@ -1,21 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container mt-3">
   <form action="{% url 'app:update' review.pk %}">
+    <fieldset class="mb-3 start-field">
+      <input type="hidden" id="star_point" value="{{ review.star_point }}">
+      <span class="text-bold">별점을 선택해주세요</span>
+      <input type="radio" name="reviewStar" value="5" id="rate1" class="star-rate"><label for="rate1">★</label>
+      <input type="radio" name="reviewStar" value="4" id="rate2" class="star-rate"><label for="rate2">★</label>
+      <input type="radio" name="reviewStar" value="3" id="rate3" class="star-rate"><label for="rate3">★</label>
+      <input type="radio" name="reviewStar" value="2" id="rate4" class="star-rate"><label for="rate4">★</label>
+      <input type="radio" name="reviewStar" value="1" id="rate5" class="star-rate"><label for="rate5">★</label>
+    </fieldset>
     <div class="mb-3">
       <label for="title" class="form-label">제목</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        name="title"
-        value="{{ review.title }}"
-      />
+      <input type="text" class="form-control" id="title" name="title" value="{{ review.title }}" />
     </div>
     <div class="mb-3">
       <label for="content" class="form-label">내용</label>
       <textarea class="form-control" id="content" rows="5" name="content">
-{{ review.content }}</textarea
-      >
+{{ review.content }}</textarea>
     </div>
     <div class="d-grid gap-2">
       <button class="btn btn-primary" type="submit">리뷰 수정</button>

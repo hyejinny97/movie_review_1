@@ -121,10 +121,13 @@
 
 ## 프로젝트 결과 완성본
 
-영화 리뷰 사이트 GitHub 저장소로 이동 👉 [movie_review_01](https://github.com/hyejinny97/movie_review_1)
+> 페어 프로젝트 완성 후
 
 ![](gif/django_project_02_movie_animation.gif)
 
+> 추가) 별점
+
+![](gif/django_project_02_star_animation.gif)
 
 ## 프로젝트 후기
 

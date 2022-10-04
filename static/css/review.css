@@ -1,19 +1,19 @@
 /* index.html */
 .created_time {
-  font-size: 0.7rem;
+	font-size: 0.7rem;
 }
 .card_content {
-  height: 2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	height: 2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .main-container {
-  max-width: 1000px;
+	max-width: 1000px;
 }
 
 .detail_content {
-  min-height: 600px;
-  color: red;
+	min-height: 600px;
+	color: red;
 }

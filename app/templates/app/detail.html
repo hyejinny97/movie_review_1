@@ -1,25 +1,29 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load app_filter %} {% block content %}
 <main class="container my-5">
   <div class="card shadow p-3 mb-5 bg-body rounded">
     <div class="card-body">
       <h2 class="text-center">제목: {{ review.title }}</h2>
+      <p class="d-flex justify-content-center">
+        <!-- {% for _ in yellow_star %}
+        <span class="yellow-star">★</span>
+        {% endfor %}
+        {% for _ in gray_star %}
+        <span class="gray-star">★</span>
+        {% endfor %} -->
+        {% for _ in review.star_point|get_range %}
+        <span class="yellow-star">★</span>
+        {% endfor %}
+        {% for _ in 5|sub:review.star_point|get_range %}
+        <span class="gray-star">★</span>
+        {% endfor %}
+      </p>
       <hr />
 
       <p style="min-height: 600px">{{ review.content }}</p>
       <div class="d-flex text-muted justify-content-between">
         <div class="align-self-end">
-          <a
-            class="btn btn-success"
-            href="{% url 'app:edit' review.pk %}"
-            role="button"
-            >수정</a
-          >
-          <a
-            class="btn btn-danger"
-            href="{% url 'app:delete' review.pk %}"
-            role="button"
-            >삭제</a
-          >
+          <a class="btn btn-success" href="{% url 'app:edit' review.pk %}" role="button">수정</a>
+          <a class="btn btn-danger" href="{% url 'app:delete' review.pk %}" role="button">삭제</a>
         </div>
         <div class="align-self-end">
           <p>작성일: {{ review.created_at }}</p>

@@ -1,0 +1,35 @@
+/* new.html & edit.html */
+.start-field {
+	display: inline-block;
+	direction: rtl;
+	border: 0;
+}
+.start-field input[type="radio"] {
+	display: none;
+}
+.start-field label {
+	font-size: 3em;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
+}
+.start-field label:hover {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.start-field label:hover ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.start-field input[type="radio"]:checked ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+/* detail.html & index.html */
+.gray-star {
+  font-size: 1.5em;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
+}
+.yellow-star {
+  font-size: 1.5em;
+	color: transparent;
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}

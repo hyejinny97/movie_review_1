@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.forms import ModelChoiceField
 
@@ -8,4 +9,5 @@ class Review (models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    star_point = models.IntegerField(default=0)
     
